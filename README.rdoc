@@ -14,6 +14,14 @@ Then Apache (et. al.) can be used to serve the pages without hitting the ruby ap
 If your static cache dir differs from "#{RAILS_ROOT}/public/radiant-cache", set
 the STATIC_CACHE_DIR ruby variable in "config/initializers/static_caching.rb"
 
+If you have any POSTed pages that should reset the cache, such as a 'Contact Us' form,
+place any prefixes to ignore in the IGNORE_PREFIXES ruby variable in
+"config/initializers/static_caching.rb", similar to above. For example, if your 
+contact us form is POSTed to /contact then set the IGNORE_PREFIXES as such:
+
+IGNORE_PREFIXES = ['/contact']
+
+
 = Apache Setup
 
 == Cache Location
